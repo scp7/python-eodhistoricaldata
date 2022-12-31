@@ -38,7 +38,7 @@ def get_eod_data(symbol, exchange, start=None, end=None,
     }
     r = session.get(url, params=params)
     if r.status_code == requests.codes.ok:
-        df = pd.read_csv(StringIO(r.text), skipfooter=1,
+        df = pd.read_csv(StringIO(r.text),
                          parse_dates=[0], index_col=0)
         return df
     else:
